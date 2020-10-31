@@ -1,6 +1,6 @@
 /*
 Programa para cálculo de sombra de objetos
-Linguagem - Node.js  Versao 2.0 ..
+Linguagem - Node.js  Versao 2.0
 Márcio Garrido 30/10/2020
 */
 var color = require("cli-color")
