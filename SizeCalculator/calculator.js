@@ -28,9 +28,7 @@ var calculadora = readline.createInterface({
     output: process.stdout
 });
 
-//setInterval(() => {
-    //console.table(stats);
-//}, 1000);
+
 
 var logon = "Bem vindo ao calculador de sombras";
 
