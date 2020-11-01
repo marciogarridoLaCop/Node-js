@@ -8,6 +8,7 @@ var readline = require('readline')
 var distancia_sombra_objeto = ""
 var distancia_sombra_referencia = ""
 var altura_referencia = ""
+var funcao = require("./shadowcalc.js")
 const os = require('os')
 const { parse } = require("path")
 const { freemen ,totalmem} = os
@@ -32,17 +33,23 @@ var calculadora = readline.createInterface({
 
 var logon = "Bem vindo ao calculador de sombras";
 
-function welcome(logon) {    
-    console.log(color.green(logon))
+function welcome(logon) {
+    console.log(color.green(logon));
 }
-
 welcome(logon);
 calculadora.question('Digite o valor da distancia da sombra do objeto desejado : ', (distancia_sombra_objeto) => {
     calculadora.question('Digite o valor da distancia da sombrado objeto referencia : ', (distancia_sombra_referencia) => { 
         calculadora.question('Digite o valor da altura do objeto  referencia : ', (altura_referencia) => {
-            var result = (altura_referencia * distancia_sombra_objeto) / distancia_sombra_referencia
-                console.log(`A altura do objeto é de  ${result} metros`)
-                calculadora.close()
+            var result = funcao.calcular_sombra(distancia_sombra_objeto,distancia_sombra_referencia,altura_referencia);
+                if (isNaN(result)){
+                    console.log(color.red("\nImpossível calcular com os valores digitados"));
+                    calculadora.close();
+                }
+                else
+                    {
+                    console.log(color.green(`\nA altura do objeto é de  ${result} metros`));
+                    calculadora.close();
+                }
         });
     });
 });
