@@ -1,5 +1,5 @@
 /*
-Funcao para cálculo 
+Funcao para cálculo de sombra
 */
 function shadowcalc (distancia_sombra_objeto,distancia_sombra_referencia,altura_referencia){
      var resultado = (altura_referencia * distancia_sombra_objeto) / distancia_sombra_referencia;
@@ -8,7 +8,5 @@ function shadowcalc (distancia_sombra_objeto,distancia_sombra_referencia,altura_
           }
           else
           return resultado;
-
 }
-
 exports.calcular_sombra=shadowcalc;
